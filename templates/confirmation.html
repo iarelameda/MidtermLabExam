@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation</title>
+</head>
+<body>
+    <section class="contact-list">
+        <h1>Contact Submissions</h1>
+
+        {% if contact %}
+            <div class="contact-grid">
+                {% for item in contact %}
+                <div>
+
+                    <p class="name">{{ item.name }}</p>
+                    <p class="email">{{ item.email }}</p>
+                    <p class="number">{{ item.number }}</p>
+                    <p class="message">{{ item.message }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-contact">No contact submissions yet.</p>
+        {% endif %}
+
+        <a href="{{ url_for('contact') }}" class="btn">Submit Feedback</a>
+    </section>
+</body>
+</html>
